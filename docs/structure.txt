@@ -1,0 +1,19 @@
+Gallery:
+  GalleryItem
+    Image
+    Details
+      - name
+      - type
+      - manufacturer
+      - price
+      - is collection item
+    Status
+      - sold
+      - lost
+      - donated
+      - hole in one
+    FlightNumbers
+      - speed
+      - glide
+      - stability
+      - fade
