@@ -1,12 +1,3 @@
-const createQuery = (values = null) => {}
-const createHint = (values = null) => {
-  if (!values) {
-    return ''
-  }
-
-  return 'h={' + values.join(',') + '}'
-}
-
 const mapType = (type) => {
   const types = {
     putter: 'Putter',

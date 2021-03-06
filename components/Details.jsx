@@ -39,6 +39,7 @@ const renderPrice = (disc) => {
     return `${numbro(disc.price).format('0.00')} €`
   }
 }
+
 export const Details = ({ disc }) => {
   return (
     <Flex>
@@ -53,4 +54,16 @@ export const Details = ({ disc }) => {
       <Price>{renderPrice(disc)}</Price>
     </Flex>
   )
+}
+
+Details.propTypes = {
+  disc: PropTypes.shape({
+    manufacturer: PropTypes.string.isRequired,
+    material: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    price_status: PropTypes.oneOf(['gift', 'price_unknown', '']),
+    type: PropTypes.oneOf(['Distance driver', 'Fairway driver', 'Mid-range', 'Putter']),
+    weight: PropTypes.number.isRequired,
+  }),
 }

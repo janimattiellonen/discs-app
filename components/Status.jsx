@@ -49,8 +49,8 @@ export const Status = ({ disc }) => {
     const statuses = []
 
     if (isHoleInOne()) {
-      let hioDate = !!disc['HIO date'] ? format(new Date(disc['HIO date']), 'MMMM io, y') : ''
-      const hioDescription = !!disc['HIO description'] ? disc['HIO description'].trim() : ''
+      let hioDate = disc['HIO date'] ? format(new Date(disc['HIO date']), 'MMMM io, y') : ''
+      const hioDescription = disc['HIO description'] ? disc['HIO description'].trim() : ''
 
       statuses.push({
         label: 'Hole in one',
@@ -65,7 +65,7 @@ export const Status = ({ disc }) => {
 
     if (disc.sold) {
       //return `${numbro(disc.price).format('0.00')} €`
-      statuses.push({ label: 'Sold', additional: !!disc.sold_at ? format(new Date(disc.sold_at), 'MMMM io, y') : '' })
+      statuses.push({ label: 'Sold', additional: disc.sold_at ? format(new Date(disc.sold_at), 'MMMM io, y') : '' })
     }
 
     if (disc.broken) {
@@ -73,13 +73,13 @@ export const Status = ({ disc }) => {
     }
 
     if (disc.missing) {
-      statuses.push({ label: 'Missing', additional: !!disc.missing_description ? disc.missing_description : '' })
+      statuses.push({ label: 'Missing', additional: disc.missing_description ? disc.missing_description : '' })
     }
 
     if (disc.Donated) {
       statuses.push({
         label: 'Donated',
-        additional: !!disc['Donation description'] ? disc['Donation description'] : '',
+        additional: disc['Donation description'] ? disc['Donation description'] : '',
       })
     }
 
