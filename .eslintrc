@@ -1,0 +1,52 @@
+{
+    "parser": "babel-eslint",
+    "plugins": ["prettier", "react", "react-hooks"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:prettier/recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true,
+            "modules": true
+        }
+    },
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true,
+        "jest": true
+    },
+    "rules": {
+
+        "camelcase": ["error", { "properties": "never" }],
+        "no-unused-vars": [
+            "error",
+            { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
+        ],
+        "no-nested-ternary": "error",
+        "prettier/prettier": [
+            "error",
+            {
+                "trailingComma": "all",
+                "tabWidth": 2,
+                "semi": false,
+                "singleQuote": true,
+                "printWidth": 120
+            }
+        ],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "react/prop-types": "warn"
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
+}
+
