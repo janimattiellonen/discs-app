@@ -6,8 +6,6 @@ import { useRouter } from 'next/router'
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
-import config from '../config.client'
-
 import { createQueryString } from '../api/restDbQuery'
 
 import { GalleryItem } from '../components/GalleryItem'
@@ -22,7 +20,7 @@ const Gallery = () => {
     offset: 0,
   })
 
-  const url = `${config.server.base_url}/rest/discs?metafields=true&apikey=${config.server.api_key}&${queryString}`
+  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/rest/discs?metafields=true&apikey=${process.env.NEXT_PUBLIC_API_KEY}&${queryString}`
   const { data, error } = useSWR(url, fetcher)
 
   if (error) return <div>failed to load</div>

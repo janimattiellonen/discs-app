@@ -1,7 +1,5 @@
 import axios from 'axios'
 
-import config from '../config.client'
-
 import { createQueryString } from './restDbQuery'
 
 export default {
@@ -10,7 +8,7 @@ export default {
 
     return axios
       .get(
-        `${config.server.base_url}/rest/discs?metafields=true&apikey=${process.env.REACT_APP_API_KEY}&${queryString}`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/rest/discs?metafields=true&apikey=${process.env.NEXT_PUBLIC_API_KEY}&${queryString}`,
       )
       .then((res) => {
         return res.data
@@ -18,7 +16,7 @@ export default {
   },
 
   getStats() {
-    return axios.get(`${process.env.REACT_APP_STATS_BASE_URL}/stats`).then((res) => {
+    return axios.get(`${process.env.NEXT_PUBLIC_STATS_BASE_URL}/stats`).then((res) => {
       return res.data
     })
   },
